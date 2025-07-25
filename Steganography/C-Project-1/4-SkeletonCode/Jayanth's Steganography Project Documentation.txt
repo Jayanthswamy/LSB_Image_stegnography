@@ -1,0 +1,86 @@
+						Steganography Project Documentation
+
+Name: Jayanth DM
+Project Title: Steganography
+
+I. Introduction
+Steganography is the art and science of hiding information in plain sight. The goal of this project is to implement a steganography system that allows users to embed secret messages within digital media files, specifically BMP images. This is done using Least Significant Bit (LSB) encoding, where small modifications are made to the image's pixel data to store hidden information without significantly altering the image's appearance.
+
+II. Requirements
+The project requires the following skills and knowledge in C programming:
+
+Proficiency in C language
+Understanding of:
+Conditional constructs
+Loops
+Strings and arrays
+Functions and pointers
+Built-in functions
+Bitwise operations and operators
+File handling in C
+
+III. Process Overview
+Encoding Data
+Embedding the secret message into a BMP image using LSB-based steganography.
+
+Decoding Data
+Extracting the hidden message from the encoded BMP image.
+
+IV. Project Requirements
+Files Needed:
+
+beautiful.bmp: The original BMP image file.
+secret.txt: A text file containing the secret message to be hidden.
+stego.bmp: The output BMP file containing the hidden message.
+BMP Image:
+
+The image must be in BMP format because this method operates on the LSBs of the image’s pixel data.
+
+V. Encoding Methods
+Steps Involved:
+Bitwise Operations:
+
+Operate on the bytes of beautiful.bmp.
+The first 54 bytes of a BMP file are reserved for header information.
+Every pixel consists of 3 bytes representing RGB (Red, Green, Blue) values.
+Encoding Secret Data:
+
+A magic string provided by the user (to authenticate access) and its length will be encoded.
+Two main functions are used:
+Encoding Integer to LSB: To encode integer data (e.g., file size, magic string length).
+Encoding Byte to LSB: To encode character data (e.g., message characters).
+Secret File Information:
+
+Gather file extension, size, and data from secret.txt.
+Encode this data into the stego.bmp file using the LSB encoding functions.
+Completing the Encoding:
+
+Once the secret data is encoded, the remaining part of beautiful.bmp is copied to stego.bmp to preserve its appearance.
+Output:
+
+A new image file stego.bmp is created containing the hidden message.
+
+
+VI. Decoding Methods
+Steps Involved:
+Accessing the Encoded Image:
+
+Open the stego.bmp file for decoding.
+Skip the first 54 bytes of header information.
+Decoding Secret Data:
+
+Two main functions are used:
+Decoding Integer from LSB: To retrieve encoded integers (e.g., file size, magic string length).
+Decoding Byte from LSB: To retrieve character data (e.g., message characters).
+Magic String Verification:
+
+The user is prompted to input the magic string. This is compared with the decoded magic string to grant access.
+Retrieving the Secret Message:
+
+Once verified, the hidden message is decoded from stego.bmp and saved into output.txt.
+Output:
+
+The secret message is stored in output.txt after decoding.
+
+VII. Project Completion
+After implementing both encoding and decoding functions, the project concludes with a fully functional steganography system. This system hides a secret message within an image and retrieves it when required.
